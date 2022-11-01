@@ -6,12 +6,21 @@ function uploadPhoto(event) {
   updatePhotos.setAttribute('src', photoUrl.value);
 }
 
-// var inputData = {};
-// var form = document.querySelector('main');
-var saveButton = document.querySelector('.button');
-saveButton.addEventListener('submit', saveData);
+var newForm = document.querySelector('#journal-form');
+var resetPhoto = document.querySelector('.pictures');
 
-function saveData(event) {
+newForm.addEventListener('submit', function (event) {
   event.preventDefault();
+  var newFormData = {
+    title: newForm.elements.title.value,
+    imageUrl: newForm.elements.url.value,
+    notes: newForm.elements.notes.value,
+    entryId: data.nextEntryId
+  };
 
-}
+  data.nextEntryId++;
+  data.entries.unshift(newFormData);
+
+  newForm.reset();
+  resetPhoto.setAttribute('src', 'images/placeholder-image-square.jpg');
+});

@@ -44,37 +44,56 @@
 
 
   <main>
-    <div class="container main" data-view="entry-form">
-      <div class="row">
-        <div class="column-full">
-          <h1>New Entry</h1>
+    <form id="journal-form">
+      <div class="container main form" data-view="entry-form">
+        <div class="row">
+          <div class="column-full">
+            <h1>New Entry</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-half picture-holder">
+            <input
+            name="image"
+            type="image"
+            class="pictures"
+            alt="image-placeholder"
+            src="images/placeholder-image-square.jpg">
+          </div>
+          <div class="column-half title">
+            <label>Title</label>
+            <input
+            name="title"
+            type="text"
+            class="text-input-title"
+            required>
+
+            <label>Photo URL</label>
+            <input
+            name="url"
+            type="url"
+            class="text-input-URL"
+            required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="column-full noting">
+            <label>Notes</label>
+            <textarea
+            name="notes"
+            rows="8"
+            class="notes"
+            required></textarea>
+          </div>
+          <div class="column-full button">
+            <button>SAVE</button>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="column-half picture-holder">
-          <input class="pictures" type="image" alt="image-placeholder"
-          src="images/placeholder-image-square.jpg">
-        </div>
-        <div class="column-half title">
-          <h4>Title</h4>
-          <input type="text" class="text-input-title" required>
-          <h4>Photo URL</h4>
-          <input type="url" class="text-input-URL" required>
-        </div>
-      </div>
-      <div class="row">
-        <div class="column-full noting">
-          <h4>Notes</h4>
-        </div>
-        <div class="column-full note">
-          <textarea class="notes" rows="8" required></textarea>
-        </div>
-        <div class="column-full button">
-          <button>SAVE</button>
-        </div>
-      </div>
-    </div>
+    </form>
   </main>
+
 
 
 
