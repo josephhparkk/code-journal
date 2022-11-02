@@ -73,3 +73,31 @@ button {
   margin-bottom: 1.5rem;
   margin-top: 3.5rem;
 }
+
+/* feature #2 */
+
+li {
+  list-style: none;
+}
+
+ul {
+  justify-content: left;
+  padding: 0;
+}
+
+p {
+  margin-top: 0;
+  line-height: 1.5;
+  font-size: 17px;
+}
+
+.entries-tab {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.entry-heading {
+  margin-top: 1.3rem;
+  margin-left: 1.5rem;
+}

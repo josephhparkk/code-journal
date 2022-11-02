@@ -18,6 +18,10 @@
   width: 100%;
 }
 
+.column-fifteenth {
+  flex-basis: calc(100% / 5);
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
