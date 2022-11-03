@@ -27,9 +27,14 @@ label {
   font-weight: 600;
 }
 
+.heading {
+  margin-left: 0.5rem;
+}
+
 .pictures {
   width: 100%;
   margin-bottom: 1rem;
+  margin-top: 0;
 }
 
 .text-input-title,
@@ -60,7 +65,7 @@ textarea {
   padding: 0.5rem;
 }
 
-button {
+.save-button {
   background-color: #562b81;
   color: white;
   border-radius: 5px;
@@ -97,7 +102,39 @@ p {
   font-size: 18px;
 }
 
-.entry-heading {
+.entry-nav {
   margin-top: 1.3rem;
   margin-left: 1.5rem;
+}
+
+.entry-heading {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+}
+
+.new-button {
+  background-color: #562b81;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin: 1.2rem 0;
+  padding-top: 0.45rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.entries {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.description {
+  padding-right: 0;
+}
+
+.no-entry-message {
+  text-align: center;
 }
