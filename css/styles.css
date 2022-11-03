@@ -28,7 +28,7 @@ label {
 }
 
 .heading {
-  margin-left: 0.5rem;
+  display: flex;
 }
 
 .pictures {
@@ -100,11 +100,8 @@ p {
   color: white;
   text-decoration: none;
   font-size: 18px;
-}
-
-.entry-nav {
-  margin-top: 1.3rem;
-  margin-left: 1.5rem;
+  padding-top: 1.25rem;
+  padding-left: 2rem;
 }
 
 .entry-heading {
