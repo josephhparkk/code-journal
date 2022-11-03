@@ -14,38 +14,30 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
-
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
-
 </head>
+
 <body>
-
-
-
-
-
   <header>
     <div class="container">
       <div class="row">
         <div class="column-full heading">
           <h3>Code Journal</h3>
+          <a class="entries-tab" href="#">Entries</a>
         </div>
       </div>
     </div>
   </header>
 
 
-
   <main>
-    <form id="journal-form">
-      <div class="container main form" data-view="entry-form">
+    <div class="container form-container" data-view="entry-form">
+      <form id="journal-form">
         <div class="row">
           <div class="column-full">
             <h1>New Entry</h1>
@@ -87,18 +79,53 @@
             required></textarea>
           </div>
           <div class="column-full button">
-            <button>SAVE</button>
+            <button class="save-button">SAVE</button>
           </div>
         </div>
+      </form>
+    </div>
+
+
+
+    <div class="container entry-container hidden" data-view="entries">
+      <div class="row">
+        <div class="column-full entry-heading">
+          <h1>Entries</h1>
+          <a class="new-button" href="#">NEW</a>
+        </div>
       </div>
-    </form>
+      <div class="row">
+        <div class="column-full no-entry-message">
+          <p class="no-message">No Entries have been recorded.</p>
+        </div>
+      </div>
+      <ul class="row"></ul>
+    </div>
+
   </main>
-
-
-
-
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
+
+
+
+<!--
+<ul class="row ul">
+  <li class="column-full entries">
+    <div class="row">
+      <div class="column-half image">
+        <img src="images/placeholder-image-square.jpg" class="pictures">
+      </div>
+      <div class="column-half description">
+        <h2>CATS</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita
+          quo maiores nobis eos laudantium vitae tenetur facilis quasi ab
+          temporibus? Illo aut itaque veniam minima tempora consequuntur
+          ducimus officia modi.</p>
+      </div>
+    </div>
+  </li>
+</ul>
+-->

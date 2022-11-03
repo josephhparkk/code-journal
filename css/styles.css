@@ -27,9 +27,14 @@ label {
   font-weight: 600;
 }
 
+.heading {
+  display: flex;
+}
+
 .pictures {
   width: 100%;
   margin-bottom: 1rem;
+  margin-top: 0;
 }
 
 .text-input-title,
@@ -60,7 +65,7 @@ textarea {
   padding: 0.5rem;
 }
 
-button {
+.save-button {
   background-color: #562b81;
   color: white;
   border-radius: 5px;
@@ -72,4 +77,61 @@ button {
   text-align: right;
   margin-bottom: 1.5rem;
   margin-top: 3.5rem;
+}
+
+/* feature #2 */
+
+li {
+  list-style: none;
+}
+
+ul {
+  justify-content: left;
+  padding: 0;
+}
+
+p {
+  margin-top: 0;
+  line-height: 1.5;
+  font-size: 17px;
+}
+
+.entries-tab {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding-top: 1.25rem;
+  padding-left: 2rem;
+}
+
+.entry-heading {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+}
+
+.new-button {
+  background-color: #562b81;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin: 1.2rem 0;
+  padding-top: 0.45rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.entries {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.description {
+  padding-right: 0;
+}
+
+.no-entry-message {
+  text-align: center;
 }
