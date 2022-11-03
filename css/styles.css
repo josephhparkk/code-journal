@@ -130,8 +130,22 @@ p {
 
 .description {
   padding-right: 0;
+  display: flex;
+  padding-left: 0;
+  justify-content: space-between;
+  padding-top: 0;
+}
+
+h2 {
+  margin-top: 0;
 }
 
 .no-entry-message {
   text-align: center;
+}
+
+.fa-pen {
+  margin-top: 0.15rem;
+  font-size: 1.2rem;
+  color: #562b81;
 }
