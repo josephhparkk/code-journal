@@ -12,6 +12,7 @@ var entryContainerPage = document.querySelector('.entry-container');
 var entriesTab = document.querySelector('.entries-tab');
 var newButton = document.querySelector('.new-button');
 var newEntryHeader = document.querySelector('h1');
+var imgHolder = document.querySelector('.pictures');
 
 // addEventListener functions
 photoUrl.addEventListener('input', uploadPhoto);
@@ -34,6 +35,7 @@ newForm.addEventListener('submit', function (event) {
   };
 
   data.nextEntryId++;
+
   data.entries.unshift(newFormData);
   newForm.reset();
   resetPhoto.setAttribute('src', 'images/placeholder-image-square.jpg');
@@ -42,12 +44,18 @@ newForm.addEventListener('submit', function (event) {
   unorderedList.prepend(renderEntry(newFormData));
 
 });
+/*
+1. Update the entry form's submit handler function to
+   conditionally add a new entry object or update the existing one.
+2. Update the entry form's submit handler function to conditionally add a
+   new entry DOM tree or replace the existing one.
+*/
 
 // DOM tree
 function renderEntry(entry) {
   var li = document.createElement('li');
   li.setAttribute('class', 'column-full entries');
-  li.setAttribute('data-entry-id', data.nextEntryId);
+  li.setAttribute('data-entry-id', entry.entryId);
 
   var div1 = document.createElement('div');
   div1.setAttribute('class', 'row');
@@ -122,18 +130,23 @@ function clickNewForNewEntry(event) {
 }
 
 function editRenderedElement(event) {
-  clickNewForNewEntry(event.target);
-  newEntryHeader.textContent = 'Edit Entry';
 
-  var eachEntries = document.querySelectorAll('li');
-  for (var j = 1; j < data.entries.length; j++) {
-    if (eachEntries[j].getAttribute('data-entry-id') === data.entries[j].entryId) {
-      data.editing = data.entries[j];
+  // var eachEntries = document.querySelectorAll('li');
+  var clickedEntry = event.target.closest('li');
+
+  var clickedId = clickedEntry.getAttribute('data-entry-id');
+  for (var j = 0; j < data.entries.length; j++) {
+    if (clickedId === data.entries[j].entryId.toString()) {
+      data.editing = data.entries[j].nextEntryId;
       title.value = data.entries[j].title;
       photoUrl.value = data.entries[j].imageUrl;
       notes.value = data.entries[j].notes;
+      imgHolder.setAttribute('src', data.entries[j].imageUrl);
     }
-    // if (event.target && event.target.matches('.fa-pen')) {
+  }
+  if (event.target && event.target.matches('.fa-pen')) {
+    clickNewForNewEntry(event.target);
+    newEntryHeader.textContent = 'Edit Entry';
   }
 }
 
