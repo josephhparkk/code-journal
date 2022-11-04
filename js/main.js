@@ -130,10 +130,7 @@ function clickNewForNewEntry(event) {
 }
 
 function editRenderedElement(event) {
-
-  // var eachEntries = document.querySelectorAll('li');
   var clickedEntry = event.target.closest('li');
-
   var clickedId = clickedEntry.getAttribute('data-entry-id');
   for (var j = 0; j < data.entries.length; j++) {
     if (clickedId === data.entries[j].entryId.toString()) {
