@@ -149,13 +149,3 @@ function editRenderedElement(event) {
     newEntryHeader.textContent = 'Edit Entry';
   }
 }
-
-/*
-1. when clicked on the edit icon, you want to compare its data-entry-id (for example: "4" to
-data.entries[j].entryID objects inside the array with a for loop to go through each iteration
-2. assign the data.entries[j] to data-editing
-3. once it the match is found, assign:
-  title: newForm.elements.title.value into the title input
-  imageUrl: newForm.elements.url.value into the image URL input
-  notes: newForm.elements.notes.value into the notes textarea
-*/
