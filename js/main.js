@@ -25,8 +25,21 @@ function uploadPhoto(event) {
   updatePhotos.setAttribute('src', photoUrl.value);
 }
 
-newForm.addEventListener('submit', function (event) {
+newForm.addEventListener('submit', submitEntry);
+
+function submitEntry(event) {
   event.preventDefault();
+  /* if (data.editing !== null) {
+    data.editing.title = newForm.elements.title.value;
+    data.editing.imageUrl = newForm.elements.imageUrl.value;
+    data.editing.notes = newForm.elements.notes.value;
+
+    // var list = document.querySelectorAll('li');
+
+    // for (var k = 0; k < data.entries.length; k++) {
+    // }
+*/
+
   var newFormData = {
     title: newForm.elements.title.value,
     imageUrl: newForm.elements.url.value,
@@ -41,7 +54,8 @@ newForm.addEventListener('submit', function (event) {
   resetPhoto.setAttribute('src', 'images/placeholder-image-square.jpg');
   clickGoToEntryPage(event);
   unorderedList.prepend(renderEntry(newFormData));
-});
+
+}
 
 function renderEntry(entry) {
   var li = document.createElement('li');
@@ -123,9 +137,10 @@ function clickNewForNewEntry(event) {
 function editRenderedElement(event) {
   var clickedEntry = event.target.closest('li');
   var clickedId = clickedEntry.getAttribute('data-entry-id');
+
   for (var j = 0; j < data.entries.length; j++) {
     if (clickedId === data.entries[j].entryId.toString()) {
-      data.editing = data.entries[j].nextEntryId;
+      data.editing = data.entries[j];
       title.value = data.entries[j].title;
       photoUrl.value = data.entries[j].imageUrl;
       notes.value = data.entries[j].notes;
