@@ -29,17 +29,21 @@ newForm.addEventListener('submit', submitEntry);
 
 function submitEntry(event) {
   event.preventDefault();
-  /* if (data.editing !== null) {
+  if (data.editing !== null) {
     data.editing.title = newForm.elements.title.value;
-    data.editing.imageUrl = newForm.elements.imageUrl.value;
+    data.editing.imageUrl = newForm.elements.url.value;
     data.editing.notes = newForm.elements.notes.value;
 
-    // var list = document.querySelectorAll('li');
+    var list = document.querySelectorAll('li');
 
-    // for (var k = 0; k < data.entries.length; k++) {
-    // }
-*/
+    for (var k = 0; k < data.entries.length; k++) {
+      var listId = list[k].getAttribute('data-entry-id');
+      if (data.editing.entryId.toString() === listId) {
+        list[k].replaceWith(data.entries[k]);
 
+      }
+    }
+  }
   var newFormData = {
     title: newForm.elements.title.value,
     imageUrl: newForm.elements.url.value,
@@ -135,9 +139,9 @@ function clickNewForNewEntry(event) {
 }
 
 function editRenderedElement(event) {
+
   var clickedEntry = event.target.closest('li');
   var clickedId = clickedEntry.getAttribute('data-entry-id');
-
   for (var j = 0; j < data.entries.length; j++) {
     if (clickedId === data.entries[j].entryId.toString()) {
       data.editing = data.entries[j];
