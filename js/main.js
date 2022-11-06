@@ -35,30 +35,32 @@ function submitEntry(event) {
     data.editing.notes = newForm.elements.notes.value;
 
     var list = document.querySelectorAll('li');
-
     for (var k = 0; k < data.entries.length; k++) {
       var listId = list[k].getAttribute('data-entry-id');
       if (data.editing.entryId.toString() === listId) {
-        list[k].replaceWith(data.entries[k]);
-
+        list[k].replaceWith(renderEntry(data.editing));
       }
     }
+    for (var h = 0; h < data.entries.length; h++) {
+      if (data.entries[h].entryId === data.editing.entryId) {
+        data.entries[h].title = data.editing.title;
+        data.entries[h].imageUrl = data.editing.imageUrl;
+        data.entries[h].notes = data.editing.notes;
+      }
+    }
+  } else {
+    var newFormData = {
+      title: newForm.elements.title.value,
+      imageUrl: newForm.elements.url.value,
+      notes: newForm.elements.notes.value,
+      entryId: data.nextEntryId
+    };
+    data.nextEntryId++;
+    data.entries.unshift(newFormData);
+    unorderedList.prepend(renderEntry(newFormData));
   }
-  var newFormData = {
-    title: newForm.elements.title.value,
-    imageUrl: newForm.elements.url.value,
-    notes: newForm.elements.notes.value,
-    entryId: data.nextEntryId
-  };
-
-  data.nextEntryId++;
-
-  data.entries.unshift(newFormData);
-  newForm.reset();
-  resetPhoto.setAttribute('src', 'images/placeholder-image-square.jpg');
+  data.editing = null;
   clickGoToEntryPage(event);
-  unorderedList.prepend(renderEntry(newFormData));
-
 }
 
 function renderEntry(entry) {
@@ -128,6 +130,8 @@ function clickGoToEntryPage(event) {
   entryContainerPage.classList.remove('hidden');
   noEntryMessage.classList.add('hidden');
   data.view = 'entries';
+  newForm.reset();
+  resetPhoto.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
 
 // go to 'NEW ENTRY' page when you click 'NEW'
