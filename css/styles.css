@@ -73,10 +73,18 @@ textarea {
   padding: 6px 15px;
 }
 
-.button {
+.delete-tab {
+  color: #df3d3d;
+  font-size: 16px;
+}
+
+.save {
   text-align: right;
-  margin-bottom: 1.5rem;
-  margin-top: 3.5rem;
+}
+
+.last-row-style {
+  margin: 3.5rem 0.8rem 1.5rem;
+  justify-content: space-between;
 }
 
 /* feature #2 */
@@ -148,4 +156,37 @@ h2 {
   margin-top: 0.15rem;
   font-size: 1.2rem;
   color: #562b81;
+}
+
+/* modal */
+.modal {
+  position: fixed;
+  background: white;
+  width: 36%;
+  border-radius: 5px;
+}
+
+.question {
+  text-align: center;
+}
+
+.cancel {
+  background-color: #b6b6b6;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.confirm {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-align: right;
+}
+
+.butons {
+  justify-content: space-between;
 }

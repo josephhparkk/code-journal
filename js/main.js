@@ -14,6 +14,7 @@ var entriesTab = document.querySelector('.entries-tab');
 var newButton = document.querySelector('.new-button');
 var newEntryHeader = document.querySelector('h1');
 var imgHolder = document.querySelector('.pictures');
+var deleteTab = document.querySelector('.delete-tab');
 
 photoUrl.addEventListener('input', uploadPhoto);
 entriesTab.addEventListener('click', clickGoToEntryPage);
@@ -158,5 +159,6 @@ function editRenderedElement(event) {
   if (event.target && event.target.matches('.fa-pen')) {
     clickNewForNewEntry(event.target);
     newEntryHeader.textContent = 'Edit Entry';
+    deleteTab.classList.remove('hidden');
   }
 }
