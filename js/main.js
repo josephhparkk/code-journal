@@ -162,3 +162,23 @@ function editRenderedElement(event) {
     deleteTab.classList.remove('hidden');
   }
 }
+
+deleteTab.addEventListener('click', deleteAnEntryClick);
+var modal = document.querySelector('.modal');
+
+function deleteAnEntryClick(event) {
+  modal.classList.remove('hidden');
+}
+
+var cancelButton = document.querySelector('.cancel');
+cancelButton.addEventListener('click', cancelDelete);
+
+function cancelDelete(event) {
+  modal.className = 'modal overlay positioned hidden';
+}
+
+// var confirmButton = document.querySelector('.confirm');
+// confirmButton.addEventListener('click', deleteEntry)
+
+// eslint-disable-next-line eol-last
+// function deleteEntry()
