@@ -183,18 +183,21 @@ confirmButton.addEventListener('click', deleteEntry);
 
 function deleteEntry(event) {
   event.preventDefault();
-  if (data.editing !== null) {
-    data.editing.title = newForm.elements.title.value;
-    data.editing.imageUrl = newForm.elements.url.value;
-    data.editing.notes = newForm.elements.notes.value;
-
-    var list = document.querySelectorAll('li');
-    for (var p = 0; p < data.entries.length; p++) {
-      var listIds = list[p].getAttribute('data-entry-id');
-      if (data.editing.entryId.toString() === listIds) {
-        unorderedList.removeChild(listIds);
-      }
+  var clickedEntry = event.target.closest('li');
+  var clickedId = clickedEntry.getAttribute('data-entry-id');
+  for (var a = 0; a < data.entries.length; a++) {
+    if (clickedId === data.entries[a].entryId.toString()) {
+      data.entries.splice(data.entries[a]);
     }
+
+  //   var list = document.querySelectorAll('li');
+  //   for (var p = 0; p < data.entries.length; p++) {
+  //     var listIds = list[p].getAttribute('data-entry-id');
+  //     if (data.editing.entryId.toString() === listIds) {
+  //       unorderedList.removeChild(listIds);
+  //     }
+  //   }
+  // }
   }
 }
 // for (var g = 0; g < data.entries.length; g++) {
