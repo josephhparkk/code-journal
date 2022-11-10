@@ -192,7 +192,7 @@ function deleteEntry(event) {
     for (var p = 0; p < data.entries.length; p++) {
       var listIds = list[p].getAttribute('data-entry-id');
       if (data.editing.entryId.toString() === listIds) {
-        unorderedList.removeChild(list);
+        unorderedList.removeChild(listIds);
       }
     }
   }
