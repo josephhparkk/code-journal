@@ -56,6 +56,7 @@ function submitEntry(event) {
       notes: newForm.elements.notes.value,
       entryId: data.nextEntryId
     };
+
     data.nextEntryId++;
     data.entries.unshift(newFormData);
     unorderedList.prepend(renderEntry(newFormData));
@@ -177,8 +178,29 @@ function cancelDelete(event) {
   modal.className = 'modal overlay positioned hidden';
 }
 
-// var confirmButton = document.querySelector('.confirm');
-// confirmButton.addEventListener('click', deleteEntry)
+var confirmButton = document.querySelector('.confirm');
+confirmButton.addEventListener('click', deleteEntry);
 
-// eslint-disable-next-line eol-last
-// function deleteEntry()
+function deleteEntry(event) {
+  event.preventDefault();
+  if (data.editing !== null) {
+    data.editing.title = newForm.elements.title.value;
+    data.editing.imageUrl = newForm.elements.url.value;
+    data.editing.notes = newForm.elements.notes.value;
+
+    var list = document.querySelectorAll('li');
+    for (var p = 0; p < data.entries.length; p++) {
+      var listIds = list[p].getAttribute('data-entry-id');
+      if (data.editing.entryId.toString() === listIds) {
+        unorderedList.removeChild(list);
+      }
+    }
+  }
+}
+// for (var g = 0; g < data.entries.length; g++) {
+//   if (data.entries[g].entryId === data.editing.entryId) {
+//     data.entries[g].title = data.editing.title;
+//     data.entries[g].imageUrl = data.editing.imageUrl;
+//     data.entries[g].notes = data.editing.notes;
+//   }
+// }
