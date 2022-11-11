@@ -14,6 +14,7 @@ var entriesTab = document.querySelector('.entries-tab');
 var newButton = document.querySelector('.new-button');
 var newEntryHeader = document.querySelector('h1');
 var imgHolder = document.querySelector('.pictures');
+var deleteTab = document.querySelector('.delete-tab');
 
 photoUrl.addEventListener('input', uploadPhoto);
 entriesTab.addEventListener('click', clickGoToEntryPage);
@@ -55,6 +56,7 @@ function submitEntry(event) {
       notes: newForm.elements.notes.value,
       entryId: data.nextEntryId
     };
+
     data.nextEntryId++;
     data.entries.unshift(newFormData);
     unorderedList.prepend(renderEntry(newFormData));
@@ -158,5 +160,37 @@ function editRenderedElement(event) {
   if (event.target && event.target.matches('.fa-pen')) {
     clickNewForNewEntry(event.target);
     newEntryHeader.textContent = 'Edit Entry';
+    deleteTab.classList.remove('hidden');
+  }
+}
+
+deleteTab.addEventListener('click', deleteAnEntryClick);
+var modal = document.querySelector('.modal');
+
+function deleteAnEntryClick(event) {
+  modal.classList.remove('hidden');
+}
+
+var cancelButton = document.querySelector('.cancel');
+cancelButton.addEventListener('click', cancelDelete);
+
+function cancelDelete(event) {
+  modal.className = 'modal overlay positioned hidden';
+}
+
+var confirmButton = document.querySelector('.confirm');
+confirmButton.addEventListener('click', deleteEntry);
+
+function deleteEntry(event) {
+  if (event.target && event.target.matches('.confirm')) {
+    var renderedList = document.querySelectorAll('li');
+    for (var p = 0; p < data.entries.length; p++) {
+      if (data.editing.entryId.toString() === renderedList[p].getAttribute('data-entry-id')) {
+        data.entries.splice(data.entries[p], 1);
+        clickGoToEntryPage(event);
+        cancelDelete(event);
+        renderedList[p].remove();
+      }
+    }
   }
 }
