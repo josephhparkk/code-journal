@@ -182,28 +182,15 @@ var confirmButton = document.querySelector('.confirm');
 confirmButton.addEventListener('click', deleteEntry);
 
 function deleteEntry(event) {
-  event.preventDefault();
-  var clickedEntry = event.target.closest('li');
-  var clickedId = clickedEntry.getAttribute('data-entry-id');
-  for (var a = 0; a < data.entries.length; a++) {
-    if (clickedId === data.entries[a].entryId.toString()) {
-      data.entries.splice(data.entries[a]);
+  if (event.target && event.target.matches('.confirm')) {
+    var renderedList = document.querySelectorAll('li');
+    for (var p = 0; p < data.entries.length; p++) {
+      if (data.editing.entryId.toString() === renderedList[p].getAttribute('data-entry-id')) {
+        data.entries.splice(data.entries[p], 1);
+        clickGoToEntryPage(event);
+        cancelDelete(event);
+        renderedList[p].remove();
+      }
     }
-
-  //   var list = document.querySelectorAll('li');
-  //   for (var p = 0; p < data.entries.length; p++) {
-  //     var listIds = list[p].getAttribute('data-entry-id');
-  //     if (data.editing.entryId.toString() === listIds) {
-  //       unorderedList.removeChild(listIds);
-  //     }
-  //   }
-  // }
   }
 }
-// for (var g = 0; g < data.entries.length; g++) {
-//   if (data.entries[g].entryId === data.editing.entryId) {
-//     data.entries[g].title = data.editing.title;
-//     data.entries[g].imageUrl = data.editing.imageUrl;
-//     data.entries[g].notes = data.editing.notes;
-//   }
-// }
